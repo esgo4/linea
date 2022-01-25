@@ -29,7 +29,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),   // FRONTEND
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'signup','index','profile'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -37,7 +37,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout','index','profile'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -76,6 +76,11 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    
+    public function actionProfile()
+    {
+        return $this->render('profile');
     }
 
     /**
