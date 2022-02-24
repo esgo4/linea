@@ -84,6 +84,7 @@ class ApoyosController extends Controller
     public function actionNuevo()
     {
         $model = new Apoyos();
+        $model->id_usuario = \Yii::$app->user->identity->id;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())  ) {
