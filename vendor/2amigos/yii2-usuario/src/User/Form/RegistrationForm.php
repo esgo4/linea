@@ -30,6 +30,10 @@ class RegistrationForm extends Model
     /**
      * @var string Username
      */
+    public $username;
+    /**
+     * @var string Curp
+     */
     public $curp;
     /**
      * @var string Password
@@ -52,11 +56,22 @@ class RegistrationForm extends Model
 
         return [
             // username rules
-            'usernameLength' => ['curp', 'string', 'min' => 18, 'max' => 18],
-            'usernameTrim' => ['curp', 'filter', 'filter' => 'trim'],
-            'usernamePattern' => ['curp', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@]+$/'],
-            'usernameRequired' => ['curp', 'required'],
+            'usernameLength' => ['username', 'string', 'min' => 3, 'max' => 255],
+            'usernameTrim' => ['username', 'filter', 'filter' => 'trim'],
+            'usernamePattern' => ['username', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@]+$/'],
+            'usernameRequired' => ['username', 'required'],
             'usernameUnique' => [
+                'username',
+                'unique',
+                'targetClass' => $user,
+                'message' => Yii::t('usuario', 'This username has already been taken'),
+            ],
+            // curp rules
+            'curpLength' => ['curp', 'string', 'min' => 18, 'max' => 18],
+            'curpTrim' => ['curp', 'filter', 'filter' => 'trim'],
+            'curpPattern' => ['curp', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@]+$/'],
+            'curpRequired' => ['curp', 'required'],
+            'curpUnique' => [
                 'curp',
                 'unique',
                 'targetClass' => $user,
@@ -95,8 +110,8 @@ class RegistrationForm extends Model
         return [
             'email' => Yii::t('usuario', 'Email'),
             'username' => Yii::t('usuario', 'Username'),
-            'curp' => Yii::t('usuario', 'Curp'),
             'password' => Yii::t('usuario', 'Password'),
+            'curp' => Yii::t('usuario', 'Curp'),
             'gdpr_consent' => Yii::t('usuario', 'Data processing consent')
         ];
     }

@@ -204,7 +204,7 @@ class User extends ActiveRecord implements IdentityInterface
         return ArrayHelper::merge(
             parent::scenarios(),
             [
-                'register' => ['usarname','curp', 'email', 'password'],
+                'register' => ['username','curp', 'email', 'password'],
                 'connect' => ['username', 'email'],
                 'create' => ['username', 'email', 'password'],
                 'update' => ['username', 'email', 'password'],
@@ -228,15 +228,16 @@ class User extends ActiveRecord implements IdentityInterface
             'usernameUnique' => [
                 'username',
                 'unique',
-                'message' => Yii::t('usuario', 'This curp has already been taken'),
+                'message' => Yii::t('usuario', 'This username has already been taken'),
             ],
             
             // curp rules
-            'usernameRequired' => ['curp', 'required', 'on' => ['register', 'create', 'connect', 'update']],
-            'usernameMatch' => ['curp', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@\+]+$/'],
-            'usernameLength' => ['curp', 'string', 'min' => 18, 'max' => 18],
-            'usernameTrim' => ['curp', 'trim'],
-            'usernameUnique' => [
+            'curpRequired' => ['curp', 'required', 'on' => ['register', 'create', 'connect', 'update']],
+            'curpMatch' => ['curp', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@\+]+$/'],
+            'curpLength' => ['curp', 'string', 'min' => 18, 'max' => 18],
+            'curpTrim' => ['curp', 'trim'],
+            'curpUp' => ['curp', 'filter', 'filter'=>'strtoupper'],
+            'curpUnique' => [
                 'curp',
                 'unique',
                 'message' => Yii::t('usuario', 'This curp has already been taken'),

@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the 2amigos/yii2-usuario project.
  *
@@ -10,38 +9,63 @@
  */
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 /**
  * @var yii\web\View               $this
  * @var yii\widgets\ActiveForm     $form
  * @var \Da\User\Form\RecoveryForm $model
  */
-
 $this->title = Yii::t('usuario', 'Reset your password');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
-            </div>
-            <div class="panel-body">
-                <?php $form = ActiveForm::begin(
-                    [
-                        'id' => $model->formName(),
-                        'enableAjaxValidation' => true,
-                        'enableClientValidation' => false,
-                    ]
-                ); ?>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+</style>
+<main class="d-flex w-100" style="font-family: 'Montserrat', sans-serif;">
+    <div class="container d-flex flex-column">
+        <div class="row vh-100"> 
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                <div class="d-table-cell align-middle"> 
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="m-sm-4">
+                                <div class="text-center">
+                                    <img src="/img/img.png" alt="Logo" class="" width="380"  />
+                                </div>
+                                <div class="text-center mt-4" >
+                                    <h1 class="h2">Bienvenido</h1>
+                                    <p class="lead">
+                                        Restablecer su contraseña
+                                    </p>
+                                </div>
+                                <?php
+                                $form = ActiveForm::begin(
+                                                [
+                                                    'id' => $model->formName(),
+                                                    'enableAjaxValidation' => true,
+                                                    'enableClientValidation' => false,
+                                                ]
+                                );
+                                ?>
 
-                <?= Html::submitButton(Yii::t('usuario', 'Finish'), ['class' => 'btn btn-success btn-block']) ?><br>
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'password')->passwordInput() ?>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <?= Html::submitButton(Yii::t('usuario', 'Finish'), ['class' => 'btn btn-success btn-block']) ?><br>
+                                </div>
 
-                <?php ActiveForm::end(); ?>
+                            </div>
+                        </div>
+
+
+                        <?php ActiveForm::end(); ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
+

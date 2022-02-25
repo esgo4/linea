@@ -30,6 +30,25 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
+                        'validateOnBlur' => false,
+                        'validateOnType' => false,
+                        'validateOnChange' => false,
+                    ]
+                ) ?>
+                <?= $form->field(
+                    $model,
+                    'twoFactorAuthenticationCode',
+                    ['inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1']]
+                ) ?>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= Html::a(
+                            Yii::t('usuario', 'Cancel'),
+                            ['login'],
+                            ['class' => 'btn btn-default btn-block', 'tabindex' => '3']
+                        ) ?>
+                    </div>
             </div>
             <div class="panel-body">
                 <?php $form = ActiveForm::begin(

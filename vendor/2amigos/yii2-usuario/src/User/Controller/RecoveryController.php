@@ -104,14 +104,9 @@ class RecoveryController extends Controller
             if ($this->make(PasswordRecoveryService::class, [$form->email, $mailService])->run()) {
                 $this->trigger(FormEvent::EVENT_AFTER_REQUEST, $event);
             }
+            
 
-            return $this->render(
-                '/shared/message',
-                [
-                    'title' => Yii::t('usuario', 'Recovery message sent'),
-                    'module' => $this->module,
-                ]
-            );
+            return $this->redirect(['/user/security/login']);
         }
 
         return $this->render('request', ['model' => $form]);
@@ -147,13 +142,7 @@ class RecoveryController extends Controller
                 Yii::t('usuario', 'Recovery link is invalid or expired. Please try requesting a new one.')
             );
 
-            return $this->render(
-                '/shared/message',
-                [
-                    'title' => Yii::t('usuario', 'Invalid or expired link'),
-                    'module' => $this->module,
-                ]
-            );
+            return $this->redirect(['/user/security/login']);
         }
 
         /** @var RecoveryForm $form */
@@ -168,13 +157,7 @@ class RecoveryController extends Controller
 
                 Yii::$app->session->setFlash('success', Yii::t('usuario', 'Password has been changed'));
 
-                return $this->render(
-                    '/shared/message',
-                    [
-                        'title' => Yii::t('usuario', 'Password has been changed'),
-                        'module' => $this->module,
-                    ]
-                );
+                return $this->redirect(['/user/security/login']);
             }
         }
 

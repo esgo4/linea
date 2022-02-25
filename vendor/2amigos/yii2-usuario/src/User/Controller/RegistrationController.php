@@ -212,10 +212,13 @@ class RegistrationController extends Controller
         $this->trigger(UserEvent::EVENT_BEFORE_CONFIRMATION, $event);
 
         if ($this->make(AccountConfirmationService::class, [$code, $user, $userConfirmationService])->run()) {
-            Yii::$app->user->login($user, $this->module->rememberLoginLifespan);
+            //Yii::$app->user->login($user, $this->module->rememberLoginLifespan);
+            
             Yii::$app->session->setFlash('success', Yii::t('usuario', 'Thank you, registration is now complete.'));
+            
 
             $this->trigger(UserEvent::EVENT_AFTER_CONFIRMATION, $event);
+            return $this->redirect(['/user/security/login']);
         } else {
             Yii::$app->session->setFlash(
                 'danger',
@@ -263,6 +266,7 @@ class RegistrationController extends Controller
                         )
                     );
                 }
+                return $this->redirect(['/user/security/login']); 
             }
             if ($user === null || $success === false) {
                 Yii::$app->session->setFlash(
@@ -272,6 +276,7 @@ class RegistrationController extends Controller
                         'We couldn\'t re-send the mail to confirm your address. Please, verify is the correct email or if it has been confirmed already.'
                     )
                 );
+               return $this->redirect(['/user/security/login']); 
             }
 
             return $this->render(

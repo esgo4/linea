@@ -51,11 +51,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                 );
                                 ?>
                                 <div class="mb-3">
+                                    <?= $form->field($model, 'curp')->textInput(['autofocus' => true,'style' => 'text-transform:uppercase']) ?>
+                                </div>
+                                <div class="mb-3">
                                     <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
                                 </div>
 
                                 <div class="mb-3">
-                                    <?= $form->field($model, 'curp') ?>
+                                    <?= $form->field($model, 'username') ?>
                                 </div>                                               
 
                                 <div class="mb-3">
