@@ -38,8 +38,8 @@ AppAsset::register($this);
             <div class="wrapper">
                 <nav id="sidebar" class="sidebar js-sidebar">
                     <div class="sidebar-content js-simplebar">
-                        <a class="sidebar-brand" href="/index.php/">
-                            <img src="/img/img.png" class="" width="120" alt="logo">                        
+                        <a class="sidebar-brand" href="/index.php/" style="background:  white; text-align: center">
+                            <img src="/img/img.png" class="" width="150" alt="logo">                        
                         </a>
 
                         <ul class="sidebar-nav">
