@@ -11,7 +11,11 @@ use yii\bootstrap4\NavBar;
 use yii\helpers\Url;
 
 AppAsset::register($this);
+
+$perfil = Yii::$app->user->id
 ?>
+
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <style>
@@ -36,7 +40,7 @@ AppAsset::register($this);
             <?php $this->beginBody() ?>
 
             <div class="wrapper">
-                <nav id="sidebar" class="sidebar js-sidebar">
+<!--                <nav id="sidebar" class="sidebar js-sidebar">
                     <div class="sidebar-content js-simplebar">
                         <a class="sidebar-brand" href="/index.php/" style="background:  white; text-align: center">
                             <img src="/img/img.png" class="" width="150" alt="logo">                        
@@ -71,7 +75,7 @@ AppAsset::register($this);
                                 </a>
                             </li>
 
-                            <!--                        <li class="sidebar-header">
+                                                    <li class="sidebar-header">
                                                         Tools & Components
                                                     </li>
                             
@@ -103,9 +107,9 @@ AppAsset::register($this);
                                                         <a class="sidebar-link" href="icons-feather.html">
                                                             <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
                                                         </a>
-                                                    </li>-->
+                                                    </li>
 
-                            <!--                        <li clasdebar-header">
+                                                    <li clasdebar-header">
                                                         Plugins & Addons
                                                     </li>
                             
@@ -119,10 +123,10 @@ AppAsset::register($this);
                                                         <a class="sidebar-link" href="maps-google.html">
                                                             <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
                                                         </a>
-                                                    </li>-->
+                                                    </li>
                         </ul>
 
-                        <!--                        <div class="">
+                                                <div class="">
                                                     <div class="" style="border-bottom: 1px solid #e9ecef;
                                                          border-top: 1px solid #e9ecef;
                                                          margin-left: -15px;
@@ -137,9 +141,9 @@ AppAsset::register($this);
                                                             <img src="/img/gorjeo.png" class="" width="30" alt="logo">                        
                                                         </a>
                                                     </div>
-                                                </div>-->
+                                                </div>
                     </div>
-                </nav>
+                </nav>-->
 
                 <div class="main">
                     <nav class="navbar navbar-expand navbar-light navbar-bg">
@@ -149,11 +153,11 @@ AppAsset::register($this);
 
                         <div class="navbar-collapse collapse">
                             <ul class="navbar-nav navbar-align">
-                                <li class="nav-item dropdown">
+<!--                                <li class="nav-item dropdown">
                                     <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                                         <div class="position-relative">
                                             <i class="align-middle" data-feather="bell"></i>
-                                            <!--<span class="indicator"></span>-->
+                                            <span class="indicator"></span>
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
@@ -280,17 +284,17 @@ AppAsset::register($this);
                                             <a href="#" class="text-muted">Show all messages</a>
                                         </div>
                                     </div>
-                                </li>
+                                </li>-->
                                 <li class="nav-item dropdown">
                                     <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                                         <i class="align-middle" data-feather="settings"></i>
                                     </a>
 
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                                        <img src="/thema/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark"><?= Yii::$app->user->identity->username ?></span>
+                                        <img src="/img/us.png" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark"><?= Yii::$app->user->identity->username ?></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="/index.php/site/profile/"><i class="align-middle me-1" data-feather="user"></i> Perfil</a>
+                                        <a class="dropdown-item" href="/index.php/prensa/profile/<?=$perfil ?>" ><i class="align-middle me-1" data-feather="user"></i> Perfil</a>
                                         <!--<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>-->
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>

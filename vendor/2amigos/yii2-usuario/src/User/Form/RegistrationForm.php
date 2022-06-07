@@ -32,9 +32,9 @@ class RegistrationForm extends Model
      */
     public $username;
     /**
-     * @var string Curp
+     * @var string Nombre
      */
-    public $curp;
+    public $nombre;
     /**
      * @var string Password
      */
@@ -66,17 +66,17 @@ class RegistrationForm extends Model
                 'targetClass' => $user,
                 'message' => Yii::t('usuario', 'This username has already been taken'),
             ],
-            // curp rules
-            'curpLength' => ['curp', 'string', 'min' => 18, 'max' => 18],
-            'curpTrim' => ['curp', 'filter', 'filter' => 'trim'],
-            'curpPattern' => ['curp', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@]+$/'],
-            'curpRequired' => ['curp', 'required'],
-            'curpUnique' => [
-                'curp',
-                'unique',
-                'targetClass' => $user,
-                'message' => Yii::t('usuario', 'This curp has already been taken'),
-            ],
+            // nombre rules
+            'nombreLength' => ['nombre', 'string', 'min' => 0, 'max' => 50],
+            'nombreTrim' => ['nombre', 'filter', 'filter' => 'trim'],
+            //'nombrePattern' => ['nombre', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@]+$/'],
+            'nombreRequired' => ['nombre', 'required'],
+//            'curpUnique' => [
+//                'curp',
+//                'unique',
+//                'targetClass' => $user,
+//                'message' => Yii::t('usuario', 'This curp has already been taken'),
+//            ],
             // email rules
             'emailTrim' => ['email', 'filter', 'filter' => 'trim'],
             'emailRequired' => ['email', 'required'],
@@ -111,7 +111,7 @@ class RegistrationForm extends Model
             'email' => Yii::t('usuario', 'Email'),
             'username' => Yii::t('usuario', 'Username'),
             'password' => Yii::t('usuario', 'Password'),
-            'curp' => Yii::t('usuario', 'Curp'),
+            'nombre' => Yii::t('usuario', 'Nombre Completo'),
             'gdpr_consent' => Yii::t('usuario', 'Data processing consent')
         ];
     }

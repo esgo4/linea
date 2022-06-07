@@ -13,7 +13,7 @@ return [
     'modules' => [
         'user' => [
             'class' => Da\User\Module::class,
-            'enableEmailConfirmation' => true,
+            'enableEmailConfirmation' => false,
             'generatePasswords' => false,
             'enableRegistration' => true,
             'administrators' => ['esaul'],

@@ -183,7 +183,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'username' => Yii::t('usuario', 'Username'),
             'email' => Yii::t('usuario', 'Email'),
-            'curp' => Yii::t('usuario', 'Curp'),
+            'nombre' => Yii::t('usuario', 'Nombre'),
             'registration_ip' => Yii::t('usuario', 'Registration IP'),
             'unconfirmed_email' => Yii::t('usuario', 'New email'),
             'password' => Yii::t('usuario', 'Password'),
@@ -204,7 +204,7 @@ class User extends ActiveRecord implements IdentityInterface
         return ArrayHelper::merge(
             parent::scenarios(),
             [
-                'register' => ['username','curp', 'email', 'password'],
+                'register' => ['username','nombre', 'email', 'password'],
                 'connect' => ['username', 'email'],
                 'create' => ['username', 'email', 'password'],
                 'update' => ['username', 'email', 'password'],
@@ -231,17 +231,17 @@ class User extends ActiveRecord implements IdentityInterface
                 'message' => Yii::t('usuario', 'This username has already been taken'),
             ],
             
-            // curp rules
-            'curpRequired' => ['curp', 'required', 'on' => ['register', 'create', 'connect', 'update']],
-            'curpMatch' => ['curp', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@\+]+$/'],
-            'curpLength' => ['curp', 'string', 'min' => 18, 'max' => 18],
-            'curpTrim' => ['curp', 'trim'],
-            'curpUp' => ['curp', 'filter', 'filter'=>'strtoupper'],
-            'curpUnique' => [
-                'curp',
-                'unique',
-                'message' => Yii::t('usuario', 'This curp has already been taken'),
-            ],
+            // nombre rules
+            'nombreRequired' => ['nombre', 'required', 'on' => ['register', 'create', 'connect', 'update']],
+            //'nombreMatch' => ['nombre', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@\+]+$/'],
+            'nombreLength' => ['nombre', 'string', 'min' => 0, 'max' => 50],
+            'nombreTrim' => ['nombre', 'trim'],
+            'nombreUp' => ['nombre', 'filter', 'filter'=>'strtoupper'],
+//            'curpUnique' => [
+//                'curp',
+//                'unique',
+//                'message' => Yii::t('usuario', 'This curp has already been taken'),
+//            ],
 
             // email rules
             'emailRequired' => ['email', 'required', 'on' => ['register', 'connect', 'create', 'update']],

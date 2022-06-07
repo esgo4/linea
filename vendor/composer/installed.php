@@ -253,6 +253,15 @@
             'reference' => '089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
             'dev_requirement' => true,
         ),
+        'kartik-v/bootstrap-fileinput' => array(
+            'pretty_version' => 'v5.2.8',
+            'version' => '5.2.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kartik-v/bootstrap-fileinput',
+            'aliases' => array(),
+            'reference' => '89be70dbb9470dd8a56ef27508e344fcfccdb5af',
+            'dev_requirement' => false,
+        ),
         'kartik-v/yii2-krajee-base' => array(
             'pretty_version' => 'v3.0.2',
             'version' => '3.0.2.0',
@@ -260,6 +269,28 @@
             'install_path' => __DIR__ . '/../kartik-v/yii2-krajee-base',
             'aliases' => array(),
             'reference' => '23234fce6abc4b6f3f9ba1c7f66f56fbebcde139',
+            'dev_requirement' => false,
+        ),
+        'kartik-v/yii2-widget-datepicker' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../kartik-v/yii2-widget-datepicker',
+            'aliases' => array(
+                0 => '1.4.x-dev',
+            ),
+            'reference' => '04ee13be77790ee14d92c34f3181e521f6457639',
+            'dev_requirement' => false,
+        ),
+        'kartik-v/yii2-widget-fileinput' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../kartik-v/yii2-widget-fileinput',
+            'aliases' => array(
+                0 => '1.1.x-dev',
+            ),
+            'reference' => '61cfc4a9c856cd710a1125ac53d49f20efc40c94',
             'dev_requirement' => false,
         ),
         'kartik-v/yii2-widget-select2' => array(

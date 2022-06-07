@@ -133,6 +133,14 @@ class RegistrationController extends Controller
                 } else {
                     Yii::$app->session->setFlash('info', Yii::t('usuario', 'Your account has been created'));
                 }
+                
+                 $data = Array(
+                    "nombre" => $user->nombre,
+                    "user_id" => $user->id,                   		
+                );
+                
+                Yii::$app->db->createCommand()->insert('prensa', $data)->execute();
+                
                 $this->trigger(FormEvent::EVENT_AFTER_REGISTER, $event);
 //                return $this->render(
 //                    '/shared/message',
